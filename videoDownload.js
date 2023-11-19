@@ -82,7 +82,7 @@ app.get('/api/:url', async(req, res)=>{
         return res.status(200).json({"error":"No es un video"})
     }else{
         console.log(req.params.url)
-        nam=limpiarTexto(data.title || 'noname'); 
+        nam=data.title; 
         const nuevoAudio=await descargar_video("https://www.youtube.com/watch?v="+cod,nam)
         verArchivos();
         return res.download(nuevoAudio+".mp3",function(e){
