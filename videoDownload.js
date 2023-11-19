@@ -49,10 +49,25 @@ function limpiarTexto(texto) {
   
     // Eliminar puntos y caracteres que no son letras ni paréntesis
     texto = texto.replace(/[^a-zA-Z() \s]/g, '');
+
   
     return texto;
 }
   
+function verArchivos(){
+    fs.readdir('./downloads', (err, archivos) => {
+        if (err) {
+            console.error('Error al leer el directorio:', err);
+            return;
+        }
+        
+        console.log('Archivos en la carpeta:');
+        archivos.forEach((archivo) => {
+            console.log(archivo);
+        });
+        return;
+    });
+}
 
 
 
@@ -69,6 +84,7 @@ app.get('/api/:url', async(req, res)=>{
         console.log(req.params.url)
         nam=limpiarTexto(data.title || 'noname'); 
         const nuevoAudio=await descargar_video("https://www.youtube.com/watch?v="+cod,nam)
+        verArchivos();
         return res.download(nuevoAudio+".mp3",function(e){
             //Si hay error le aviso al cliente
             if(e){
