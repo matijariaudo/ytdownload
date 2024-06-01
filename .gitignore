@@ -2,3 +2,4 @@ downloads/*
 /node_modules
 app3.js
 app2.js
+.env

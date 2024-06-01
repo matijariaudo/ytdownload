@@ -136,10 +136,10 @@ app.get('*', function (req, res) {
 
 const init=async()=>{
 console.clear()
-const port=process.env.PORT|| 3000;
+const port=process.env.PORT|| 8000;
 app.listen(port)
 console.log("Listen ",port)
-eliminarCarpeta('ZFGY')
+//eliminarCarpeta('ZFGY')
 }
 
 init()

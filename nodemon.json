@@ -1,0 +1,7 @@
+{
+    "watch": ["./*"],
+    "ext": "js",
+    "ignore": ["*.test.js", "downloads/*","baileys_store.json","public/*"],
+    "exec": "node app.js"
+  }
+  
